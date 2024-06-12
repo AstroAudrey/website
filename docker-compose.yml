@@ -1,0 +1,13 @@
+services:
+  astroaudrey:
+    image: BovBrew/BourbonHunter:latest
+    environment:
+      - PYTHONUNBUFFERED=True
+      - DB_HOST=astroaudreydb
+      - DB_PORT=3306
+      - DB_USER=astroaudrey
+      - DB_PASSWORD=l0TulJSM8bjYjBSnsiOmrlVTFewBFXIv
+      - DB_NAME=astroaudreydb
+    ports:
+      - 5050:5050
+    restart: unless-stopped

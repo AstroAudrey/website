@@ -1,0 +1,4 @@
+Flask==3.0.3
+gunicorn==22.0.0
+mariadb==1.1.10
+psutil==5.9.8

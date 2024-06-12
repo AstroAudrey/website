@@ -1,0 +1,1 @@
+// Javascript which will be used on all pages goes here.
