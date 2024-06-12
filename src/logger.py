@@ -3,15 +3,25 @@ import logging
 from datetime import datetime, timedelta
 
 # Get the directory path of the current script
-current_dir = os.path.dirname(os.path.abspath(__file__))
-log_file_path = os.path.join(current_dir, 'log_files', 'logfile.log')
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG_DIR = os.path.join(CURRENT_DIR, 'log_files')
+LOG_FILE = os.path.join(CURRENT_DIR, 'log_files', 'logfile.log')
 
-def initialize_logger(log_file_path):
+# Ensure the log directory exists
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+# Ensure the log file exists
+if not os.path.exists(LOG_FILE):
+    with open(LOG_FILE, 'w') as log_file:
+        log_file.write('')  # Create an empty log file
+
+def initialize_logger(LOG_FILE):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
 
     # Create a file handler
-    file_handler = logging.FileHandler(log_file_path)
+    file_handler = logging.FileHandler(LOG_FILE)
     file_handler.setLevel(logging.INFO)
 
     # Create a formatter
@@ -29,7 +39,7 @@ def initialize_logger(log_file_path):
 
     return logger, console_handler
 
-logger, console_handler = initialize_logger(log_file_path)
+logger, console_handler = initialize_logger(LOG_FILE)
 
 # Create a separate logger for terminal-only messages
 terminal_only_logger = logging.getLogger('terminal_only_logger')
@@ -58,22 +68,22 @@ def remove_blank_lines(file_path):
     with open(file_path, 'w') as file:
         file.writelines(lines)
 
-def cleanup_old_logs(logger, log_file_path=None, days_to_keep=7):
+def cleanup_old_logs(logger, LOG_FILE=None, days_to_keep=7):
     """
     Removes log entries older than a specified number of days from a log file.
 
     Args:
         logger: The logger instance.
-        log_file_path (str, optional): The path to the log file. Defaults to 'log_files/logfile.log' if not provided.
+        LOG_FILE (str, optional): The path to the log file. Defaults to 'log_files/logfile.log' if not provided.
         days_to_keep (int): The number of days to keep log entries for. Defaults to 7.
     """
     # Log the start of the cleanup process
     logger.info("Starting log cleanup process.")
 
     # Set default log file path if not provided
-    if log_file_path is None:
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        log_file_path = os.path.join(current_dir, 'log_files', 'logfile.log')
+    if LOG_FILE is None:
+        CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+        LOG_FILE = os.path.join(CURRENT_DIR, 'log_files', 'logfile.log')
 
     # Remove existing handlers from the logger
     for handler in logger.handlers:
@@ -83,9 +93,9 @@ def cleanup_old_logs(logger, log_file_path=None, days_to_keep=7):
     cutoff_date = datetime.now() - timedelta(days=days_to_keep)
 
     # Create a temporary file to write filtered lines
-    temp_file_path = log_file_path + ".tmp"
+    temp_file_path = LOG_FILE + ".tmp"
 
-    with open(log_file_path, 'r') as input_file, open(temp_file_path, 'w') as output_file:
+    with open(LOG_FILE, 'r') as input_file, open(temp_file_path, 'w') as output_file:
         # Flag to track if the first line is encountered
         first_line = True
         
@@ -114,14 +124,14 @@ def cleanup_old_logs(logger, log_file_path=None, days_to_keep=7):
     remove_blank_lines(temp_file_path)
     # Replace the original log file with the temporary file
     try:
-        os.replace(temp_file_path, log_file_path)
+        os.replace(temp_file_path, LOG_FILE)
     except PermissionError:
-        with open(temp_file_path, 'r') as input_file, open(log_file_path, 'w') as output_file:
+        with open(temp_file_path, 'r') as input_file, open(LOG_FILE, 'w') as output_file:
             for line in input_file:
                 output_file.write(line)
         os.remove(temp_file_path)
 
     # Reinitialize the logger (after removing existing handlers)
-    logger, console_handler = initialize_logger(log_file_path)
+    logger, console_handler = initialize_logger(LOG_FILE)
 
     return logger
