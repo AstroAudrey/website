@@ -1,15 +1,111 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Astro's Space!{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/98.css') }}">
 {% endblock %}
 
 {% block content %}
-<!-- Home Page Body -->
-<h1>Hello World!</h1>
+<!-- <body> -->
+<div class="flex-container">
 
+<div class="Header">
+  <img src="static/img/noise.jpg" id=headerImageLeft width="100">
+  <label id="Title">
+    ~ Astro's Space ~
+  </label>
+  <img src="static/img/noise.jpg" id=headerImageRight width="100">
+</div>
+
+<div class="main">
+
+  <div id="leftContent">
+    <div class="navbar">
+      <ul>
+        <li>home</li>
+        <li>blog page</li>
+        <li>shrines</li>
+        <li>buttons</li>
+        <li>etc</li>
+      </ul>
+    </div>
+    <img src="static/img/noise.jpg" id="mail">
+  </div>
+
+  <div id="content">
+    <div class="contain">
+      
+      <div class="window">
+        <div class="title-bar">
+          <div class="title-bar-text">Content To-Do</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+      <p>ur mom:</p>
+      <ul>
+          <li>A Task Manager</li>
+          <li>create a ui</li>
+          <li>create bodies for text.</li>
+      </ul>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Press F1 for help</p>
+          <p class="status-bar-field">Entry One</p>
+          <p class="status-bar-field">CPU Usage: 14%</p>
+        </div>
+      </div>
+
+      <kbd>this is a kbd.</kbd>
+      
+    </div>
+  </div>
+
+  <div id="rightContent">
+    <div class="contain">
+    <div class="calendar">
+      <div class="ds-header">
+          <span id="month-year"></span>
+      </div>
+      <table>
+          <thead>
+              <tr>
+                  <th style="background-color: rgb(214, 0, 0)">Su</th>
+                  <th>Mo</th>
+                  <th>Tu</th>
+                  <th>We</th>
+                  <th>Th</th>
+                  <th>Fr</th>
+                  <th style="background-color: rgb(0, 66, 198)">Sa</th>
+              </tr>
+          </thead>
+          <tbody id="calendar-body" style="color: rgb(49, 49, 49);">
+              <!-- Calendar dates will be populated here -->
+          </tbody>
+      </table>
+  </div>
+  <script src="static/js/ds-calendar.js"></script>
+</div>
+
+    <p>rightContent to-do<br>
+    - calendar + clock<br>
+    - webrings area<br>
+    - music player</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  marquee placehold
+</div>
+
+</div>
+<!-- </body>-->
 {% endblock %}
 
 {% block extra_scripts %}

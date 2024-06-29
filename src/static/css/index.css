@@ -1,1 +1,215 @@
 /* CSS main page only will go here */
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+/* General styles */
+body {
+    background: linear-gradient(rgba(40, 1, 76, 0.45), rgba(40, 1, 76, 0.45)), url("../img/stars3.gif");
+    background-repeat: repeat;
+    font-family: 'Pixel', sans-serif;
+    color: white;
+  }
+  
+  /* Font faces */
+  @font-face {
+    font-family: 'Bluu';
+    src: url("../fonts/BluuNext-Bold.otf");
+  }
+  
+  @font-face {
+    font-family: 'Pixel';
+    src: url("../fonts/pixelfont.ttf");
+  }
+  
+  /* Links */
+  a:link, a:visited {
+    color: rgb(179, 161, 225);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(128, 110, 242);
+  }
+  
+  a:active {
+    color: rgb(242, 194, 65);
+    text-decoration: underline;
+  }
+  
+  /* Flexbox container for main structure */
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures full viewport height */
+  }
+  
+  /* Header */
+  .Header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 35px;
+    font-family: 'Bluu';
+  
+    #headerImageLeft{
+      margin-left: 5%;
+      margin-right: 10%;
+    }
+    #headerImageRight{
+      margin-right: 5%;
+      margin-left: 10%;
+    }
+  }
+  /* Main content section */
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1; /* Allows main section to grow and fill space */
+  }
+  
+  /* Left content column */
+  #leftContent {
+    width: 25%;
+    padding: 10px;
+    margin-left: 7%;
+  }
+  
+  .navbar {
+    background-color: hsla(256, 76%, 53%, 0.2);
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  #mail {
+    width: 100%;
+  }
+  
+  /* Middle content column */
+  #content {
+    width: 50%;
+    padding: 10px;
+  
+    .contain {
+      background-color: hsla(256, 76%, 53%, 0.2);
+      padding: 15px;
+      margin: 10px 0;
+  
+      .entry {
+        padding: 10px;
+      }
+    }
+  }
+  
+  
+  /* Right content column */
+  #rightContent {
+    width: 25%;
+    padding: 10px;
+  }
+
+  /* Calendar code */
+  @font-face {
+    font-family:'Nintendo-DS';
+    src: url("../fonts/Nintendo-DS.ttf");
+  }
+
+  .calendar {
+      font-family:'Nintendo-DS';
+      border: 2px solid #000;
+      width: 165px;
+      background-color: #fff;
+    
+      .ds-header {
+        background-color: #fff;
+        color: #000;
+        border: 2px solid rgb(214, 214, 214);
+        text-align: center;
+        padding: 3px 0;
+        font-size: 22px;
+    }
+    
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+th {
+    background-color: rgb(107, 107, 107);
+    color: #fff;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+td {
+    width: 14.28%;
+    text-align: center;
+    padding: 6.8px 0;
+    border: 1px solid rgb(148, 148, 148);
+    font-size: 18px;
+}
+
+td.today {
+    background-color: rgba(0, 116, 255, 0.35);
+    border: 2px dotted rgb(0, 57, 196);
+    font-weight: normal;
+}
+
+td.sunday {
+    background-color: rgb(255, 165, 239);
+  color: rgb(123, 0, 0);
+}
+
+td.saturday {
+    background-color: rgb(132, 173, 255);
+  color: rgb(0, 0, 132);
+}
+  
+  /* Calendar code End */
+  
+  kbd {
+    display: inline-block;
+    margin: 0 .1em;
+    padding: .1em .6em;
+    font-family: "Segoe UI Adjusted";
+    font-size: 11px;
+    line-height: 1.4;
+    color: hsl(210,8%,5%);
+    text-shadow: 0 1px 0 hsl(0,0%,100%);
+    background-color: hsl(210,8%,90%);
+    border: 1px solid hsl(210,8%,68%);
+    border-radius: 3px;
+    box-shadow: 0 1px 1px hsla(210,8%,5%,0.15),inset 0 1px 0 0 hsl(0,0%,100%);
+    white-space: nowrap
+}
+@font-face {
+  font-family: "Segoe UI Adjusted";
+  src: local(Segoe UI);
+  ascent-override:95%
+}
+
+   
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    /* @media (max-width: 700px) {
+      .left {
+        text-align: left;
+      }
+      .grid-container  {
+        grid-template-areas: 
+          'header header header header header header header header header header' 
+          'middle middle middle middle middle middle middle middle middle middle' 
+          'right right right right right right right right right right' 
+          'left left left left left left left left left left' 
+          'row row row row row row row row row row'
+          'footer footer footer footer footer footer footer footer footer footer';
+      }
+    } */
+  

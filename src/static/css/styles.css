@@ -1,1 +1,135 @@
 /* CSS affecting the entire site will go here */
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+/* General styles */
+body {
+  background: linear-gradient(rgba(40, 1, 76, 0.45), rgba(40, 1, 76, 0.45)), url("../img/stars3.gif");
+  background-repeat: repeat;
+  font-family: 'Pixel', sans-serif;
+  color: white;
+}
+
+/* Font faces */
+@font-face {
+  font-family: 'Bluu';
+  src: url("../fonts/BluuNext-Bold.otf");
+}
+
+@font-face {
+  font-family: 'Pixel';
+  src: url("../fonts/pixelfont.ttf");
+}
+
+/* Links */
+a:link, a:visited {
+  color: rgb(179, 161, 225);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(128, 110, 242);
+}
+
+a:active {
+  color: rgb(242, 194, 65);
+  text-decoration: underline;
+}
+
+/* Flexbox container for main structure */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full viewport height */
+}
+
+/* Header */
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-size: 35px;
+
+  #headerImageLeft{
+    margin-left: 5%;
+    margin-right: 10%;
+  }
+  #headerImageRight{
+    margin-right: 5%;
+    margin-left: 10%;
+  }
+}
+/* Main content section */
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex: 1; /* Allows main section to grow and fill space */
+
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Left content column */
+#leftContent {
+  width: 20%;
+  margin-left: 10%;
+  margin-right: 2%;
+  
+}
+
+.navbar {
+  background-color: hsla(256, 76%, 53%, 0.2);
+  padding: 10px;
+}
+
+#mail {
+  width: 100%;
+}
+
+/* Middle content column */
+#content {
+  width: 50%;
+  margin-left: 2%;
+  margin-right: 2%;
+
+  .contain{
+    padding: 15px;
+    width: 90%;
+  }
+}
+
+.contain {
+  background-color: hsla(256, 76%, 53%, 0.2);
+}
+
+/* Right content column */
+#rightContent {
+  width: 20%;
+  margin-left: 2%;
+  margin-right: 10%;
+  
+  .contain{
+    padding: 15px;
+  }
+}
+
+ 
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  /* @media (max-width: 700px) {
+    .left {
+      text-align: left;
+    }
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header header header header header header header' 
+        'middle middle middle middle middle middle middle middle middle middle' 
+        'right right right right right right right right right right' 
+        'left left left left left left left left left left' 
+        'row row row row row row row row row row'
+        'footer footer footer footer footer footer footer footer footer footer';
+    }
+  } */

@@ -1,0 +1,138 @@
+/* CSS affecting the entire site will go here */
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+   h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bluu';
+    color: white;
+  }
+  p, li {
+    font-size: 16px;
+  }
+  body {
+    background: linear-gradient(rgba(40, 1, 76, 0.45), rgba(40, 1, 76, 0.45)), 
+                url("../img/stars3.gif");
+    background-repeat: repeat;
+    font-family: 'Pixel';
+    color: white;
+  }
+  
+
+@font-face {
+  font-family:Bluu;
+  src: url("../fonts/BluuNext-Bold.otf");
+}
+@font-face {
+  font-family:Pixel;
+  src: url("../fonts/pixelfont.ttf");
+}
+
+  a:link, a:visited {
+    color: rgb(179,161,225);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: rgb(128,110,242);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: rgb(242,194,65);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  /* Style the header */
+  .header {
+    grid-area: header;
+    /* background-color: #f1f1f1; /*/
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+  }
+  
+  /* The grid container */
+  .grid-container {
+    display: grid;
+    grid-template-areas: 
+      'header header header header header header header header header header' 
+      'lspace left middle middle middle middle middle middle middle rspace' 
+      'lrspace right right right right right right right right rrspace'
+      'row row row row row row row row row row'
+      'footer footer footer footer footer footer footer footer footer footer';
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  } 
+  
+  .left,
+  .middle,
+  .right {
+    /*border: 0.5px solid goldenrod; */
+    padding: 10px;
+    background-color: hsla(256,76%,53%,0.2);
+  }
+  
+  .leftspace {
+    grid-area: lspace;
+  }
+  .rightspace {
+    grid-area: rspace;
+  }
+  .lrspace {
+    grid-area: lrspace;
+  }
+  .rrspace {
+    grid-area: rrspace;
+  }
+  .row {
+    grid-area: row;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Style the left column */
+  .left {
+    /*/background-color:#aaa;/*/
+    grid-area: left;
+    text-align: right;
+  }
+  
+  /* Style the middle column */
+  .middle {
+    grid-area: middle;
+    /*/background-color:#bbb;/*/
+    text-indent: 15px;
+  }
+  
+  /* Style the right column */
+  .right {
+    grid-area: right;
+    /*/background-color:#ccc;/*/
+  }
+  
+  /* Style the footer */
+  .footer {
+    grid-area: footer;
+    text-align: center;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media (max-width: 700px) {
+    .left {
+      text-align: left;
+    }
+    .grid-container  {
+      grid-template-areas: 
+        'header header header header header header header header header header' 
+        'middle middle middle middle middle middle middle middle middle middle' 
+        'right right right right right right right right right right' 
+        'left left left left left left left left left left' 
+        'row row row row row row row row row row'
+        'footer footer footer footer footer footer footer footer footer footer';
+    }
+  }
+  
